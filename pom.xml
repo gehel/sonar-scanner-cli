@@ -184,6 +184,45 @@
           </execution>
         </executions>
       </plugin>
+
+      <plugin>
+        <groupId>org.vafer</groupId>
+        <artifactId>jdeb</artifactId>
+        <version>1.5</version>
+        <configuration>
+          <dataSet>
+            <data>
+              <src>${project.basedir}/src/main/assembly/bin/sonar-runner</src>
+              <dst>bin/sonnar-runner</dst>
+              <type>file</type>
+            </data>
+
+            <data>
+              <type>link</type>
+              <linkName>/usr/local/bin/sonar-runner</linkName>
+              <linkTarget>/usr/local/share/${project.artifactId}/bin/sonar-runner</linkTarget>
+              <symlink>false</symlink>
+            </data>
+
+            <data>
+              <src>${project.basedir}/src/main/assembly/conf</src>
+              <type>directory</type>
+              <mapper>
+                <type>perm</type>
+                <filemode>0755</filemode>
+              </mapper>
+            </data>
+          </dataSet>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>jdeb</goal>
+            </goals>
+            <phase>package</phase>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 

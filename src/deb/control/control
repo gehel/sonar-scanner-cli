@@ -1,0 +1,10 @@
+Package: [[name]]
+Version: [[version]]
+Section: devel
+Priority: optional
+Architecture: all
+Depends: jdk (>= 1.7)
+Maintainer: Guillaume Lederrey <glederrey@wikimedia.org>
+Description: SonarQube Scanner used to start code analysis
+Distribution: development
+Depends: default-jre | java7-runtime
